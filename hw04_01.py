@@ -16,7 +16,7 @@ def total_salary(path):
             max_salary = max(salary_count)
 
             return f'Загальна сума заробітної плати: {sum_salary},\nСередня заробітна плата: {avg_salary},\nМінімальна заробітня плата: {min_salary},\nМаксимальна заробітня плата: {max_salary}'
-        
+    else:
+        return f'No such file'
 
 path = Path('salary.txt')
-print(total_salary(path))
