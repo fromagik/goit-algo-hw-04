@@ -10,13 +10,19 @@ def total_salary(path):
                 salary = int(salary)
                 salary_count.append(salary)
             
-            sum_salary = sum(salary_count)
-            avg_salary = sum(salary_count) // len(salary_count)
-            min_salary = min(salary_count)
-            max_salary = max(salary_count)
+            sum_salary = str(sum(salary_count))
+            avg_salary = str(sum(salary_count) // len(salary_count))
+            min_salary = str(min(salary_count))
+            max_salary = str(max(salary_count))
 
             return f'Загальна сума заробітної плати: {sum_salary},\nСередня заробітна плата: {avg_salary},\nМінімальна заробітня плата: {min_salary},\nМаксимальна заробітня плата: {max_salary}'
     else:
         return f'No such file'
 
 path = Path('salary.txt')
+
+
+assert(total_salary(path)) == '''Загальна сума заробітної плати: 6000,
+Середня заробітна плата: 2000,
+Мінімальна заробітня плата: 1000,
+Максимальна заробітня плата: 3000'''
