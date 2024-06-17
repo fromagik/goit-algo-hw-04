@@ -1,28 +1,27 @@
-from pathlib import Path
+from pathlib import Path # Імпорт модулів
 
-path = Path('cats.txt')
+path = Path('cats.txt') # Файл
 
-def get_cats_info(path):
-    list_cats = []
-    id, name, age = "", "", 0
-    if path.is_file():
-        with path.open('r') as file:
-            lines = file.readlines()
-            for line in lines:
-                id, name, age = line.strip().split(',')
-                cat_dict = {
+def get_cats_info(path): # Функція з параметрами як шлах до файлу
+    list_cats = [] # Створюємо пустий список котів 
+    if path.is_file(): # Перевірка чи це дійсно файл
+        with path.open('r') as file: # Відкриваємо файл для читання 
+            lines = file.readlines() # Читаємо рядками
+            for line in lines: # Цикл для всіх рядків
+                id, name, age = line.strip().split(',') # Розділюємо всі данні
+                cat_dict = { 
                 'id': id,
                 'name' : name,
                 'age' : int(age)
-                }
-                list_cats.append(cat_dict)
+                } # Створюємо словник з котами і передаємо всі отримані значення 
+                list_cats.append(cat_dict) # Додаємо інформацію про кота
                    
-        return list_cats
+        return list_cats # Повертаємо список котів 
             
-    else:
+    else: # Якщо файл не знайдено повертаємо рядок з помилкою 
         return f'No such file'
 
-
+# Перевірка функції
 assert(get_cats_info(path)) == [{
                                 'id': '60b90c1c13067a15887e1ae1',
                                 'name' : "Tayson",
